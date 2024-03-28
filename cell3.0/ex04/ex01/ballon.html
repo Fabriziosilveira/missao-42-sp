@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode this balloon</title>
+
+    <style>
+         #ballon{
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 50% 50% 50% 50%;
+            background-color: red;
+         }
+         #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+         }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="container">
+        <div id="ballon"></div>
+    </div>
+
+<script>
+    $(document).ready(function(){
+        $("#ballon").click(function(){
+            var $ballon = $(this);
+            var color = $ballon.css("background-color");
+            var width = $ballon.width();
+            var height = $ballon.height();
+            
+            if(height < 420){
+                height += 10;
+                width += 10;
+                
+                if(height >= 420){
+                    height = 200;
+                    width = 200;
+                }
+            }
+            
+            height = width + "px";
+            width = width + "px";
+            
+            switch(color){
+                case "rgb(255, 0, 0)":
+                    color = "rgb(0, 255, 0)";
+                    break;
+                case "rgb(0, 255, 0)":
+                    color = "rgb(0, 0, 255)";
+                    break;
+                case "rgb(0, 0, 255)":
+                    color = "rgb(255, 0, 0)";
+                    break;    
+            }
+            
+            $ballon.css({
+                "background-color": color,
+                "width": width,
+                "height": height
+            });
+        });
+        
+        $("#ballon").mouseleave(function(){
+            var $ballon = $(this);
+            var color = $ballon.css("background-color");
+            var width = $ballon.width();
+            var height = $ballon.height();
+            
+            if(height < 420){
+                height -= 5;
+                width -= 5;
+                
+                if(height < 200){
+                    height = 200;
+                    width = 200;
+                }
+            }
+            
+            height = width + "px";
+            width = width + "px";
+            
+            switch(color){
+                case "rgb(255, 0, 0)":
+                    color = "rgb(0, 0, 255)";
+                    break;
+                case "rgb(0, 0, 255)":
+                    color = "rgb(0, 255, 0)";
+                    break;
+                case "rgb(0, 255, 0)":
+                    color = "rgb(255, 0, 0)";
+                    break;    
+            }
+            
+            $ballon.css({
+                "background-color": color,
+                "width": width,
+                "height": height
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36304a;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: #473f63;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .calculator h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #f1f1f1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"], select, input[type="submit"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #847c94;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #847c94;
+            background-color: #f1f1f1;
+        }
+
+        input[type="submit"] {
+            background-color: #4e94d4;
+            color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3b77b2;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .popup {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+  <h2>42 Calculadora</h2>
+  <form id="calculatorForm">
+    <input type="text" id="leftOperand" placeholder="Primeiro Número" required>
+    <select id="operator" required>
+      <option value="">Selecione um operador</option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="rightOperand" placeholder="Segundo Número" required>
+    <input type="submit" value="Try me!">
+  </form>
+</div>
+
+<script>
+function calculate(event) {
+  event.preventDefault();
+
+  // Obtendo os valores dos campos
+  let leftOperand = parseInt(document.getElementById('leftOperand').value);
+  let operator = document.getElementById('operator').value;
+  let rightOperand = parseInt(document.getElementById('rightOperand').value);
+
+  // Verificando se os campos contêm números inteiros positivos
+  if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
+    alert('Error :(');
+    return;
+  }
+
+  // Realizando o cálculo
+  let result;
+  switch (operator) {
+    case '+':
+      result = leftOperand + rightOperand;
+      break;
+    case '-':
+      result = leftOperand - rightOperand;
+      break;
+    case '*':
+      result = leftOperand * rightOperand;
+      break;
+    case '/':
+      if (rightOperand === 0) {
+        alert("It’s over 9000!");
+        return;
+      }
+      result = leftOperand / rightOperand;
+      break;
+    case '%':
+      if (rightOperand === 0) {
+        alert("It’s over 9000!");
+        return;
+      }
+      result = leftOperand % rightOperand;
+      break;
+    default:
+      alert('Selecione um operador!');
+      return;
+  }
+
+  // Exibindo o resultado em um alerta
+  alert('Resultado: ' + result);
+
+  // Exibindo o resultado no console
+  console.log('Resultado:', result);
+}
+
+document.getElementById('calculatorForm').addEventListener('submit', calculate);
+
+// Pop-up de alerta a cada 30 segundos
+setInterval(function() {
+  alert('Please, use me...');
+}, 30000);
+
+
+</script>
+</body>
+</html>

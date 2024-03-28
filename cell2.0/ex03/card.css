@@ -1,0 +1,73 @@
+body{
+    background-color: snow;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+tbody{
+    border-collapse: collapse;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    justify-content: space-between;
+}
+
+h4{
+    font-size: 11.5px;
+    color: gray;
+    margin-top: 10px; 
+
+}
+
+h1{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+#buttom-set{
+    background-color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#buttom-set a{
+    color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+#card{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    
+}
+
+#locale{
+    margin-top: 0px;
+}
+
+#insideCard{
+    border: 1px hidden black;
+    padding: 0px;
+    box-shadow:
+    1.1px 1.8px 1.9px rgba(0, 0, 0, 0.114),
+    2.7px 4.3px 4.5px rgba(0, 0, 0, 0.154),
+    5px 8px 8.4px rgba(0, 0, 0, 0.177),
+    8.9px 14.3px 15px rgba(0, 0, 0, 0.193),
+    16.7px 26.7px 28px rgba(0, 0, 0, 0.207),
+    40px 64px 67px rgba(0, 0, 0, 0.23);   
+}
+
+#icons-set{
+    padding-bottom: 15px;
+}

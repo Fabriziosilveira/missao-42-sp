@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <title>Change background</title>
+</head>
+<body id="body">
+    <button id="switch" onclick="switchBg()">click me!</button>
+<script>
+    let button = document.getElementsByTagName("button")[0];
+    let body = document.body;
+    button.addEventListener("click", function(evt){
+    color = body.style.backgroundColor
+    switch(color){
+        case "":
+            color="black"
+            break;
+        case "black":
+            color="pink"
+            break;
+        case "pink":
+            color=""
+            break;    
+    }
+    body.style.backgroundColor = color
+    });
+</script>
+</body>
+</html>

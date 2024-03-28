@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode this balloon</title>
+
+<style>
+     #ballon{
+        display: flex;
+        justify-content: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 50% 50% 50% 50%;
+        background-color: red;
+     }
+     #container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+     }
+</style>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="ballon" onclick="" onmouseleave=""></div>
+    </div>
+
+<script>
+    let ballon = document.getElementById("ballon");
+
+    ballon.addEventListener("click", function(evt){
+    color = window.getComputedStyle(ballon).backgroundColor
+    width = window.getComputedStyle(ballon).width
+    height = window.getComputedStyle(ballon).height
+    
+    height = parseInt(height.slice(0, 3))
+    width = parseInt(width.slice(0, 3))
+
+    
+    if(height < 420){
+        height = height + 10
+        width = width + 10
+        
+        if(height >= 420){
+            height = 200
+            width = 200
+        }
+    }
+
+    height = width.toString() + "px"
+    width = width.toString() + "px"
+
+    switch(color){
+        case "rgb(255, 0, 0)":
+            color="rgb(0, 255, 0)"
+            break;
+        case "rgb(0, 255, 0)":
+            color="rgb(0, 0, 255)"
+            break;
+        case "rgb(0, 0, 255)":
+            color="rgb(255, 0, 0)"
+            break;    
+    }
+
+    ballon.style.backgroundColor = color
+    ballon.style.width = width
+    ballon.style.height = height
+    });
+
+    ballon.addEventListener("mouseleave", function(evt){
+    color = window.getComputedStyle(ballon).backgroundColor
+    width = window.getComputedStyle(ballon).width
+    height = window.getComputedStyle(ballon).height
+    
+    height = parseInt(height.slice(0, 3))
+    width = parseInt(width.slice(0, 3))
+
+    
+    if(height < 420){
+        height = height - 5
+        width = width - 5
+        
+        if(height < 200){
+            height = 200
+            width = 200
+        }
+    }
+
+    height = width.toString() + "px"
+    width = width.toString() + "px"
+
+    switch(color){
+        case "rgb(255, 0, 0)":
+            color="rgb(0, 0, 255)"
+            break;
+        case "rgb(0, 0, 255)":
+            color="rgb(0, 255, 0)"
+            break;
+        case "rgb(0, 255, 0)":
+            color="rgb(255, 0, 0)"
+            break;    
+    }
+
+    ballon.style.backgroundColor = color
+    ballon.style.width = width
+    ballon.style.height = height
+    });
+</script>
+</body>
+</html>

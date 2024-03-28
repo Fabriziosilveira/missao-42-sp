@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <title>Change background</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body id="body">
+    <button id="switch">click me!</button>
+
+<script>
+$(document).ready(function(){
+    $("#switch").click(function(){
+        let body = $("body");
+        let color = body.css("background-color");
+        switch(color){
+            case "rgba(0, 0, 0, 0)":
+                color = "black";
+                break;
+            case "rgb(0, 0, 0)":
+                color = "pink";
+                break;
+            case "rgb(255, 192, 203)":
+                color = "";
+                break;    
+        }
+        body.css("background-color", color);
+    });
+});
+</script>
+</body>
+</html>

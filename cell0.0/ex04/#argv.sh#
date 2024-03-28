@@ -1,0 +1,15 @@
+case 
+
+c=0
+
+for args in $@
+do
+echo $args
+ c=$((c+1))
+ 
+ if [ "$c" -gt 2 ]; then
+    break;
+ fi   
+      
+done
+

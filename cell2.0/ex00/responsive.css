@@ -1,0 +1,17 @@
+table{
+    width: 100%;
+}
+tr{
+    height: 150px;
+}
+th{
+    border: 2px solid black;
+    height: 100%;
+    
+}
+.firstCell{
+    width: 50%;
+}
+.secoundCell{
+    width: 50%;
+}
